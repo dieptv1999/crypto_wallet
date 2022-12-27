@@ -1,0 +1,21 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-cryptowallet-staging-120933-authRole",
+      "UnauthRoleArn": "arn:aws:iam::879019563185:role/amplify-cryptowallet-staging-120933-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::879019563185:role/amplify-cryptowallet-staging-120933-authRole",
+      "Region": "ap-southeast-1",
+      "DeploymentBucketName": "amplify-cryptowallet-staging-120933-deployment",
+      "UnauthRoleName": "amplify-cryptowallet-staging-120933-unauthRole",
+      "StackName": "amplify-cryptowallet-staging-120933",
+      "StackId": "arn:aws:cloudformation:ap-southeast-1:879019563185:stack/amplify-cryptowallet-staging-120933/52ff55e0-85df-11ed-9a6a-06d5e390c086",
+      "AmplifyAppId": "d3v0jf1rk2jwji"
+    },
+    "categories": {
+      "auth": {
+        "cryptowallet8dd11609": {},
+        "cryptowallet": {}
+      }
+    }
+  }
+}
