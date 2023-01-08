@@ -1,6 +1,8 @@
-import 'dart:ffi';
-
+import 'package:crypto_wallet/blocs/login/login_bloc.dart';
+import 'package:crypto_wallet/resources/authentication_repository.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:formz/formz.dart';
 import 'package:ionicons/ionicons.dart';
 import '../../util/constants.dart';
 import '../../util/helper_functions.dart';
@@ -227,12 +229,31 @@ class _LoginContentState extends State<LoginContent>
           padding: const EdgeInsets.only(top: 100),
           child: Stack(
             children: [
-              Form(
-                key: _formKeySignUp,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: createAccountContent,
+              BlocProvider(
+                create: (context) {
+                  return LoginBloc(
+                    authenticationRepository:
+                    RepositoryProvider.of<AuthenticationRepository>(context),
+                  );
+                },
+                child: BlocListener<LoginBloc, LoginState>(
+                  listener: (context, state) {
+                    if (state.status.isSubmissionInProgress) {
+                      ScaffoldMessenger.of(context)
+                        ..hideCurrentSnackBar()
+                        ..showSnackBar(
+                          const SnackBar(content: Text('Authentication Failure')),
+                        );
+                    }
+                  },
+                  child: Form(
+                    key: _formKeySignUp,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: createAccountContent,
+                    ),
+                  ),
                 ),
               ),
               Form(

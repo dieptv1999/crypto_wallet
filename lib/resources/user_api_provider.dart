@@ -6,6 +6,7 @@ import 'dart:convert';
 
 class UserApiProvider {
   Client client = Client();
+  User? _user;
 
   Future<User> fetchUsers() async {
     print("entered");
@@ -29,5 +30,10 @@ class UserApiProvider {
   Future<AuthUser> getCurrentUser() async {
     final user = await Amplify.Auth.getCurrentUser();
     return user;
+  }
+
+  Future<User?> getUser() async {
+    if (_user != null) return _user;
+    return null;
   }
 }

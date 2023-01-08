@@ -49,6 +49,11 @@ dependencies:
   intl: ^0.17.0
   amplify_auth_cognito: ^0.6.10
   ionicons: ^0.2.1
+  bloc: ^8.1.0
+  flutter_bloc: ^8.1.1
+  equatable: ^2.0.5
+  flutter_login: ^4.1.1
+  formz: ^0.4.1
 
 dev_dependencies:
   flutter_test:
